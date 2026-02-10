@@ -74,12 +74,45 @@
   background-size: 16px;
 }
 
-/* Responsive tweaks */
-@media (max-width: 900px) {
-  .top-bar { padding: 18px 16px; }
+/* ========================================
+   REFINED RESPONSIVE DESIGN - movies.css
+   ======================================== */
+
+@media (max-width: 768px) {
+    .movies-header {
+        text-align: center;
+        padding: 30px 20px 10px;
+    }
+
+    .movies-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .top-bar {
+        padding: 15px 20px;
+        flex-direction: column; /* Stack search and filter vertically */
+        align-items: center;
+    }
+
+    .top-bar input,
+    .top-bar select {
+        max-width: 100%; 
+        width: 100%;
+        font-size: 16px; /* Prevents iOS auto-zoom on focus */
+    }
 }
 
 @media (max-width: 480px) {
-  .top-bar { gap: 12px; }
-  .top-bar input, .top-bar select { max-width: 100%; }
+    .movies-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .movies-header p {
+        font-size: 0.9rem;
+    }
+
+    .top-bar {
+        gap: 10px;
+        padding: 10px 15px;
+    }
 }

@@ -725,135 +725,93 @@
    RESPONSIVE DESIGN
    ======================================== */
 
-@media (max-width: 968px) {
-  .hero {
-    min-height: calc(100vh - 70px);
-    padding: 40px 24px 60px;
-  }
-  
-  .home-stats-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media (max-width: 1024px) {
-  .movie-section {
-    padding: 40px 5%;
-  }
+    .content-wrapper {
+        gap: 40px;
+        padding: 0 20px;
+    }
+    
+    .text-content {
+        padding: 20px;
+        text-align: center;
+    }
 
-  .content-wrapper {
-    gap: 20px;
-  }
-
-  .swiper-container {
-    padding: 0 60px;
-    flex: 1.2;
-  }
-
-  .swiper-slide {
-    width: 240px;
-    height: 360px;
-    aspect-ratio: 2 / 3;
-  }
-
-  .text-content h1 {
-    font-size: 2rem;
-  }
-
-  .home-favs-text {
-    font-size: 0.95rem;
-  }
+    .text-content h1::after {
+        margin: 16px auto 0; /* Center the underline */
+    }
 }
 
 @media (max-width: 768px) {
-  .movie-section {
-    padding: 40px 16px;
-    min-height: auto;
-  }
+    .hero {
+        min-height: auto; /* Let content define height on tablet/mobile */
+        padding: 80px 20px;
+    }
 
-  .content-wrapper {
-    flex-direction: column;
-    gap: 40px;
-  }
+    .hero-subtitle {
+        font-size: 1rem;
+    }
 
-  .text-content {
-    padding: 30px;
-  }
+    .movie-section {
+        padding: 60px 0;
+    }
 
-  .text-content h1 {
-    font-size: 1.8rem;
-  }
+    .content-wrapper {
+        flex-direction: column;
+    }
 
-  .swiper-container {
-    padding: 0 50px;
-  }
+    .swiper-container {
+        width: 100vw; /* Full width viewport for carousel */
+        padding: 0;
+        overflow: hidden; /* Prevent horizontal page shake */
+    }
 
-  .swiper-slide {
-    width: 200px;
-    height: 300px;
-    aspect-ratio: 2 / 3;
-  }
+    .swiper-slide {
+        width: 260px; /* Slightly larger for better focus */
+        height: 380px;
+    }
 
-  .swiper-pagination {
-    margin: 0 10px;
-  }
+    .home-stats-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
-@media (max-width: 640px) {
-  .container {
-    padding: 0 16px 40px;
-    grid-template-columns: 1fr;
-  }
-  
-  .section-title {
-    padding: 0 16px;
-  }
-  
-  .hero-title {
-    font-size: 2rem;
-  }
-  
-  .hero-actions {
-    flex-direction: column;
-    width: 100%;
-    padding: 0 20px;
-  }
-  
-  .hero-btn-primary,
-  .hero-btn-secondary {
-    width: 100%;
-    justify-content: center;
-  }
-}
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
 
-@media (max-width: 420px) {
-  .hero { 
-    padding: 28px 16px 48px; 
-    border-radius: 0 0 28px 28px; 
-  }
-  .hero-inner { 
-    max-width: 680px; 
-    padding: 0; 
-  }
-  .hero-title { 
-    font-size: clamp(1.5rem, 7vw, 2.25rem); 
-  }
-  .hero-subtitle { 
-    padding: 0 6px; 
-  }
-  .hero-actions { 
-    gap: 12px; 
-  }
-  .container { 
-    padding: 0 12px 40px; 
-    grid-template-columns: 1fr; 
-  }
-  .section-title { 
-    padding: 12px; 
-  }
-  .swiper-container { 
-    padding: 0 20px; 
-  }
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-btn-primary, .hero-btn-secondary {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .container {
+        grid-template-columns: 1fr; /* Force single column */
+        padding: 0 15px;
+    }
+
+    .category-image {
+        height: 220px; /* Taller images look better in single column */
+    }
+
+    .home-stat-mount {
+        grid-template-columns: 1fr; /* Stack the smaller stat cards */
+    }
+
+    .text-content h1 {
+        font-size: 1.8rem;
+    }
+
+    /* Fix Swiper "bleeding" off edges */
+    .swiper-container {
+        padding: 0 10px;
+    }
 }
 
 
