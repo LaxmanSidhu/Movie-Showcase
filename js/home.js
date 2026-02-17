@@ -1,14 +1,10 @@
 ﻿/* ==================================================
    home.js
-   - Controls the home page: hero animation, category card rendering,
-     and Top-10 favorites Swiper carousel setup.
-   - Keeps behavior minimal and performant; relies on `config.js` for data.
-   ================================================== */
+================================================== */
 
 const container = document.getElementById("categoryContainer");
 const heroContent = document.getElementById("heroContent");
 const exploreBtn = document.getElementById("exploreBtn");
-const watchlistBtn = document.getElementById("watchlistBtn");
 
 // -----------------------------
 // Hero animation + CTA behavior
@@ -24,13 +20,6 @@ if (exploreBtn) {
     if (container) {
       container.scrollIntoView({ behavior: "smooth" });
     }
-  });
-}
-
-if (watchlistBtn) {
-  watchlistBtn.addEventListener("click", (event) => {
-    event.preventDefault();
-    window.location.href = "movies.html?category=watchlist";
   });
 }
 
