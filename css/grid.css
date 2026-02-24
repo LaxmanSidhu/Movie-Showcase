@@ -21,7 +21,7 @@
   cursor: pointer;
   border: 1px solid var(--glass-border);
   backdrop-filter: blur(20px);
-  box-shadow: 
+  box-shadow:
     0 10px 40px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 var(--glass-highlight);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -43,7 +43,7 @@
 .card:hover {
   transform: translateY(-8px) scale(1.02);
   border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 
+  box-shadow:
     0 20px 60px rgba(0, 0, 0, 0.5),
     0 0 30px rgba(120, 119, 198, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -165,7 +165,7 @@
   max-width: 900px;
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 
+  box-shadow:
     0 32px 80px rgba(0, 0, 0, 0.8),
     0 0 0 1px rgba(255, 255, 255, 0.1);
   background: #0f172a;
@@ -244,11 +244,11 @@
   position: absolute;
   inset: auto 0 0 0;
   height: 70%;
-  background: linear-gradient(to top, 
-    rgba(15, 23, 42, 1) 0%, 
-    rgba(15, 23, 42, 0.8) 30%,
-    rgba(15, 23, 42, 0.4) 60%, 
-    transparent 100%);
+  background: linear-gradient(to top,
+      rgba(15, 23, 42, 1) 0%,
+      rgba(15, 23, 42, 0.8) 30%,
+      rgba(15, 23, 42, 0.4) 60%,
+      transparent 100%);
   pointer-events: none;
 }
 
@@ -306,109 +306,132 @@
    ======================================== */
 
 @media (max-width: 768px) {
-    .grid {
-        /* Force a clean 2-column or 3-column look rather than letting it "guess" */
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 16px;
-        padding: 16px;
-    }
-    
-    .poster {
-        height: 220px; /* Slightly taller for better aspect ratio */
-    }
-    
-    .movie-modal-poster {
-        min-height: 350px;
-    }
-    
-    .movie-modal-title {
-        font-size: 1.6rem;
-    }
+  .grid {
+    /* Force a clean 2-column or 3-column look rather than letting it "guess" */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
+    padding: 16px;
+  }
 
-    .movie-modal-info {
-        padding: 30px 20px;
-    }
-    
-    /* Ensure modal is readable on tablets */
-    .modal {
-        padding: 20px;
-    }
-    
-    .modal-content {
-        max-height: 90vh;
-        overflow-y: auto;
-    }
+  .poster {
+    height: 220px;
+    /* Slightly taller for better aspect ratio */
+  }
+
+  .movie-modal-poster {
+    min-height: 350px;
+  }
+
+  .movie-modal-title {
+    font-size: 1.6rem;
+  }
+
+  .movie-modal-info {
+    padding: 30px 20px;
+  }
+
+  /* Ensure modal is readable on tablets */
+  .modal {
+    padding: 20px;
+  }
+
+  .modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
 }
 
+
 @media (max-width: 480px) {
-    .grid {
-        /* Strictly 2 columns on small phones for a consistent UI */
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-        padding: 12px;
-    }
+  .grid {
+    /* Strictly 2 columns on small phones for a consistent UI */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 12px;
+  }
 
-    .card-title {
-        font-size: 0.85rem;
-        white-space: normal; /* Allow titles to wrap to 2 lines if needed */
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
+  .card-title {
+    font-size: 0.85rem;
+    white-space: normal;
+    /* Allow titles to wrap to 2 lines if needed */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 
-    /* Modal Mobile Fixes */
-    .modal {
-        padding: 0; /* Remove padding so it's truly full screen */
-    }
+  .modal {
+    padding: 0;
+    /* Remove padding so it's truly full screen */
+  }
 
-    .modal-content {
-        height: 100%; /* Occupy full height */
-        max-height: 100vh;
-        max-width: 100%;
-        border-radius: 0;
-        overflow-y: auto; /* Allow scrolling within the modal */
-        transform: scale(0.95);
-    }
-    
-    .modal.active .modal-content {
-        transform: scale(1);
-    }
+  .modal-content {
+    height: 100vh;
+    width: 100vw;
+    max-height: 100vh;
+    max-width: 100vw;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
 
-    .movie-modal-poster {
-        height: 60vh; /* Poster takes up top portion */
-        min-height: 50vh;
-    }
+  .movie-modal-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #0f172a;
+    /* Solid background for mobile */
+  }
 
-    .movie-modal-poster img {
-        height: 100%;
-        width: 100%;
-        object-fit: contain; /* Preserve aspect ratio for posters */
-        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-    }
+  .movie-modal-poster {
+    height: 90vh;
+    width: 100%;
+    min-height: 90vh;
+    flex-shrink: 0;
+    /* Prevents the poster from being squeezed */
+  }
 
-    .movie-modal-info {
-        position: relative; /* Push info below the poster image */
-        background: linear-gradient(180deg, rgba(15, 23, 42, 0.5) 0%, #0f172a 100%);
-        padding: 20px;
-    }
+  .movie-modal-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-    .movie-modal-title {
-        font-size: 1.4rem;
-        background: none;
-        -webkit-text-fill-color: var(--text-primary); /* Easier to read on mobile */
-        color: var(--text-primary);
-    }
+  .movie-modal-info {
+    position: relative;
+    inset: auto;
+    /* IMPORTANT: Clears desktop absolute positioning */
+    height: 10vh;
+    padding: 0 20px;
+    background: #0f172a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+    /* Tighter gap for the small bar */
+  }
 
-    .movie-modal-meta {
-        font-size: 0.95rem;
-    }
+  .movie-modal-title {
+    font-size: 1.1rem;
+    /* Slightly smaller for better fit */
+    -webkit-text-fill-color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
-    .close {
-        top: 15px;
-        right: 15px;
-        width: 36px;
-        height: 36px;
-        font-size: 18px;
-    }
+  .movie-modal-meta {
+    font-size: 0.8rem;
+    /* Scaled down for the 10% bar */
+    opacity: 0.8;
+  }
+
+  .close {
+    top: 15px;
+    right: 15px;
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
 }
