@@ -359,47 +359,50 @@
     overflow: hidden;
   }
 
-  /* 🔥 KEY FIX — stop modal vertical centering */
+  /* Modal full-bleed stacked layout */
   .modal {
     padding: 0;
-    align-items: flex-start !important;   /* ⭐ MOST IMPORTANT FIX */
-    background: #0f172a;
+    align-items: flex-start !important;
+    background: rgba(0,0,0,0.85);
   }
 
   .modal-content {
     width: 100vw;
-    min-height: 100vh;
-    height: auto;
     max-width: 100vw;
-    /* border-radius: 0; */
+    min-height: 100vh; /* fill the full viewport to avoid bottom gap */
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     overflow-y: auto;
-    margin-top: 12vh;
-    padding-bottom: -90px;
+    margin: 0;
+    background: #0f172a; /* ensure modal content has solid background */
+    border-radius: 0; /* remove rounded corners on mobile */
+    box-shadow: none;
+    padding-top: 8vh;
   }
 
-  /* 🔥 Main wrapper */
+  /* Wrapper stacks poster then info */
   .movie-modal-inner {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     background: #0f172a;
     width: 100%;
-    flex: 0 0 auto;
   }
 
-  /* 🔥 Poster */
+  /* Poster: full-width, centered, no flex growth filling the viewport */
   .movie-modal-poster {
-    position: relative !important;
+    position: static !important;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 20px 16px 10px;
+    justify-content: flex-start;
+    padding: 16px 16px 8px;
     background: #0f172a;
     width: 100%;
+    flex: 0 0 auto;
+    overflow: visible !important;
   }
 
   .movie-modal-poster::before {
@@ -411,33 +414,38 @@
   }
 
   .movie-modal-poster img {
-    max-width: 85%;
-    max-height: 60vh;
+    width: 100%;
+    max-width: 420px;
+    max-height: 70vh;
+    height: auto;
     object-fit: contain;
     margin: 0 auto;
     display: block;
   }
 
-  /* 🔥 Info */
+  /* Info sits below poster and flows naturally */
   .movie-modal-info {
-    position: relative !important;
+    position: static !important;
     inset: auto !important;
-    padding: 16px 20px 16px;
+    padding: 18px 20px 28px;
     background: #0f172a;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
     text-align: center;
     width: 100%;
   }
 
   .movie-modal-title {
-    font-size: 1.35rem;
+    font-size: 1.4rem;
     font-weight: 800;
     margin: 0;
     color: var(--text-primary);
     text-shadow: none;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
   }
 
   .movie-modal-meta {
