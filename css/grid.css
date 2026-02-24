@@ -145,17 +145,18 @@
   background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(20px);
   z-index: 100;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: 24px;
   opacity: 0;
   transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .modal.active {
-  display: flex;
   opacity: 1;
+  pointer-events: auto;
 }
 
 .modal-content {
@@ -327,6 +328,16 @@
     .movie-modal-info {
         padding: 30px 20px;
     }
+    
+    /* Ensure modal is readable on tablets */
+    .modal {
+        padding: 20px;
+    }
+    
+    .modal-content {
+        max-height: 90vh;
+        overflow-y: auto;
+    }
 }
 
 @media (max-width: 480px) {
@@ -354,31 +365,43 @@
     .modal-content {
         height: 100%; /* Occupy full height */
         max-height: 100vh;
+        max-width: 100%;
         border-radius: 0;
         overflow-y: auto; /* Allow scrolling within the modal */
+        transform: scale(0.95);
+    }
+    
+    .modal.active .modal-content {
+        transform: scale(1);
     }
 
     .movie-modal-poster {
         height: 60vh; /* Poster takes up top portion */
-        min-height: auto;
+        min-height: 50vh;
     }
 
     .movie-modal-poster img {
         height: 100%;
         width: 100%;
-        object-fit: cover; /* Fill the top area */
+        object-fit: contain; /* Preserve aspect ratio for posters */
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
     }
 
     .movie-modal-info {
         position: relative; /* Push info below the poster image */
-        background: #0f172a;
-        margin-top: -60px; /* Pull it up slightly over the gradient */
+        background: linear-gradient(180deg, rgba(15, 23, 42, 0.5) 0%, #0f172a 100%);
         padding: 20px;
     }
 
     .movie-modal-title {
         font-size: 1.4rem;
+        background: none;
         -webkit-text-fill-color: var(--text-primary); /* Easier to read on mobile */
+        color: var(--text-primary);
+    }
+
+    .movie-modal-meta {
+        font-size: 0.95rem;
     }
 
     .close {

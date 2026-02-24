@@ -232,9 +232,41 @@ function openModal(movie, year, genre, poster) {
 
   content.innerHTML = "";
   content.appendChild(fragment);
-  modal.style.display = "flex";
+  
+  // Add active class for animation
+  modal.classList.add("active");
+  
+  // Prevent scrolling on body when modal is open
+  document.body.style.overflow = "hidden";
 }
 
 function closeModal() {
-  document.getElementById("modal").style.display = "none";
+  const modal = document.getElementById("modal");
+  modal.classList.remove("active");
+  
+  // Re-enable scrolling after transition
+  setTimeout(() => {
+    document.body.style.overflow = "";
+  }, 300);
 }
+
+// Initialize modal interactions when DOM is ready
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("modal");
+  if (modal) {
+    // Close modal when clicking outside the modal content
+    modal.addEventListener("click", (e) => {
+      // Only close if clicking on the modal background, not the content
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+  }
+  
+  // Close modal with Escape key for better UX
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal && modal.classList.contains("active")) {
+      closeModal();
+    }
+  });
+});
