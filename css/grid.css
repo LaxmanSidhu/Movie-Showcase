@@ -343,8 +343,8 @@
 
 
 @media (max-width: 480px) {
+
   .grid {
-    /* Strictly 2 columns on small phones for a consistent UI */
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
     padding: 12px;
@@ -353,78 +353,101 @@
   .card-title {
     font-size: 0.85rem;
     white-space: normal;
-    /* Allow titles to wrap to 2 lines if needed */
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
 
+  /* 🔥 KEY FIX — stop modal vertical centering */
   .modal {
     padding: 0;
-    /* Remove padding so it's truly full screen */
+    align-items: flex-start !important;   /* ⭐ MOST IMPORTANT FIX */
+    background: #0f172a;
   }
 
   .modal-content {
-    height: 100vh;
     width: 100vw;
-    max-height: 100vh;
+    min-height: 100vh;
+    height: auto;
     max-width: 100vw;
-    border-radius: 0;
+    /* border-radius: 0; */
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    justify-content: flex-start;
+    overflow-y: auto;
+    margin-top: 12vh;
+    padding-bottom: -90px;
   }
 
+  /* 🔥 Main wrapper */
   .movie-modal-inner {
-    height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     background: #0f172a;
-    /* Solid background for mobile */
+    width: 100%;
+    flex: 0 0 auto;
   }
 
+  /* 🔥 Poster */
   .movie-modal-poster {
-    height: 90vh;
+    position: relative !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 16px 10px;
+    background: #0f172a;
     width: 100%;
-    min-height: 90vh;
-    flex-shrink: 0;
-    /* Prevents the poster from being squeezed */
+  }
+
+  .movie-modal-poster::before {
+    display: none;
+  }
+
+  .movie-modal-gradient {
+    display: none !important;
   }
 
   .movie-modal-poster img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 85%;
+    max-height: 60vh;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
   }
 
+  /* 🔥 Info */
   .movie-modal-info {
-    position: relative;
-    inset: auto;
-    /* IMPORTANT: Clears desktop absolute positioning */
-    height: 10vh;
-    padding: 0 20px;
+    position: relative !important;
+    inset: auto !important;
+    padding: 16px 20px 16px;
     background: #0f172a;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 0;
-    /* Tighter gap for the small bar */
+    gap: 5px;
+    text-align: center;
+    width: 100%;
   }
 
   .movie-modal-title {
-    font-size: 1.1rem;
-    /* Slightly smaller for better fit */
-    -webkit-text-fill-color: var(--text-primary);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin: 0;
+    color: var(--text-primary);
+    text-shadow: none;
   }
 
   .movie-modal-meta {
-    font-size: 0.8rem;
-    /* Scaled down for the 10% bar */
-    opacity: 0.8;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 500;
   }
 
   .close {
