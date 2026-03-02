@@ -14,5 +14,6 @@ const SHEETS = {
   other_lang: { name: "Other Language", gid: "891613117", thumbnail: "https://i0.wp.com/avidbards.com/wp-content/uploads/2020/11/Non-EnglishShows.png?fit=1440%2C810&ssl=1" },
   fav_movie: { name: "Favourite Movies", gid: "894280801", thumbnail: "https://contentful.harrypotter.com/usf1vwtuqyxm/4Lx4yGQ3W0daVknu7ayizS/d386272ff997df7578c175fb8b912ef8/HP-F1-philosophers-stone-harry-ron-hermione-hogwarts-express-web-landscape?q=75&fm=jpg&w=2560" },
   watchlist: { name: "Watchlist", gid: "549028903", thumbnail: "https://www.slashfilm.com/img/gallery/12-strongest-avengers-in-the-mcu-ranked/intro-1746204078.jpg" },
-  web_series: { name: "Web Series", gid: "1808896095", thumbnail: "https://images.saymedia-content.com/.image/t_share/MjA2NDEzODM1MDAxNjY4OTQ4/22-greatest-premium-channel-tv-series.jpg" }
+  web_series: { name: "Web Series", gid: "1808896095", thumbnail: "https://images.saymedia-content.com/.image/t_share/MjA2NDEzODM1MDAxNjY4OTQ4/22-greatest-premium-channel-tv-series.jpg" },
+  recently_watched: { name: "Recently Watched", gid: "1282043184", thumbnail: "https://media.timeout.com/images/106191999/750/562/image.jpg" }
 };
