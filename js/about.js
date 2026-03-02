@@ -75,9 +75,7 @@ function ensureCards() {
     .filter(([key]) => key !== "fav_movie" && key !== "watchlist" && key !== "web_series")
     .forEach(([key, sheet]) => {
       const card = makeCategoryCard({ key, name: sheet.name });
-      if (card) {
-        categoryMount.appendChild(card);
-      }
+      if (card) categoryMount.appendChild(card);
     });
 }
 
@@ -96,6 +94,7 @@ async function refreshCounts() {
   const entries = Object.entries(SHEETS).filter(
     ([key]) => key !== "fav_movie" && key !== "watchlist" && key !== "web_series"
   );
+
   const results = await Promise.allSettled(
     entries.map(([key, sheet]) =>
       fetchCategoryCount(sheet.gid).then(count => ({ key, count }))
@@ -125,7 +124,6 @@ async function refreshCounts() {
   }
 }
 
-
 async function refreshWebSeriesCount() {
   if (typeof SHEETS === "undefined" || typeof BASE_URL === "undefined") return;
   if (!SHEETS.web_series) return;
@@ -151,18 +149,16 @@ async function refreshWebSeriesCount() {
   }
 }
 
-
 // Init
 ensureCards();
 refreshCounts();
 refreshWebSeriesCount();
 
-
-// Refresh periodically so counts stay live when sheet changes
 window.setInterval(() => {
   refreshCounts();
   refreshWebSeriesCount();
 }, 60 * 1000);
+
 document.addEventListener("visibilitychange", () => {
   if (document.visibilityState === "visible") {
     refreshCounts();
@@ -188,27 +184,28 @@ document.querySelectorAll("[data-footer-year]").forEach(el => {
   const wraps = Array.from(ctaSection.querySelectorAll(".about-cta-form-wrap"));
 
   const recommendWrap = ctaSection.querySelector('[data-form-wrap="recommend"]');
-  const favouriteWrap = ctaSection.querySelector('[data-form-wrap="favourite"]');
+  const improveWrap = ctaSection.querySelector('[data-form-wrap="improve"]');
+
   const recommendForm = document.getElementById("aboutRecommendForm");
-  const favouriteForm = document.getElementById("aboutFavouriteForm");
+  const improveForm = document.getElementById("aboutImproveForm");
 
   const SERVICE_ID = "service_c41en5g";
   const TEMPLATE_ID_RECOMMEND = "template_w1pnw7s";
-  const TEMPLATE_ID_FAVOURITE = "template_gwyra6j";
+  const TEMPLATE_ID_IMPROVE = "template_gwyra6j";
   const PUBLIC_KEY = "XjDW8AH_ls1a6wpZ3";
 
   const emailjsAvailable = typeof window !== "undefined" && window.emailjs;
+
   if (emailjsAvailable) {
     try {
       window.emailjs.init({ publicKey: PUBLIC_KEY });
-    } catch (_) {
-      // ignore init errors in placeholder setup
-    }
+    } catch (_) {}
   }
 
   function setStatus(formEl, kind, message) {
     const statusEl = formEl && formEl.querySelector(".about-cta-status");
     if (!statusEl) return;
+
     statusEl.classList.remove("is-success", "is-error");
     if (kind) statusEl.classList.add(kind === "success" ? "is-success" : "is-error");
     statusEl.textContent = message || "";
@@ -228,7 +225,7 @@ document.querySelectorAll("[data-footer-year]").forEach(el => {
     });
 
     if (target === "recommend" && recommendForm) setStatus(recommendForm, null, "");
-    if (target === "favourite" && favouriteForm) setStatus(favouriteForm, null, "");
+    if (target === "improve" && improveForm) setStatus(improveForm, null, "");
   }
 
   function closeAll() {
@@ -236,6 +233,7 @@ document.querySelectorAll("[data-footer-year]").forEach(el => {
       w.classList.remove("is-open");
       w.setAttribute("aria-hidden", "true");
     });
+
     optionButtons.forEach(btn => {
       btn.classList.remove("is-active");
       btn.setAttribute("aria-expanded", "false");
@@ -253,6 +251,7 @@ document.querySelectorAll("[data-footer-year]").forEach(el => {
 
   async function sendWithEmailJs({ templateId, name, message, typeLabel }) {
     if (!emailjsAvailable) throw new Error("EmailJS not loaded");
+
     return window.emailjs.send(SERVICE_ID, templateId, {
       user_name: name,
       user_message: message,
@@ -283,7 +282,7 @@ document.querySelectorAll("[data-footer-year]").forEach(el => {
 
       try {
         await sendWithEmailJs({ templateId, name, message, typeLabel });
-        setStatus(formEl, "success", "Sent! Thanks for sharing.");
+        setStatus(formEl, "success", "Sent! Thanks for your feedback.");
         formEl.reset();
 
         window.setTimeout(() => {
@@ -299,15 +298,12 @@ document.querySelectorAll("[data-footer-year]").forEach(el => {
   }
 
   wireForm(recommendForm, TEMPLATE_ID_RECOMMEND, "recommendation");
-  wireForm(favouriteForm, TEMPLATE_ID_FAVOURITE, "favourite");
+  wireForm(improveForm, TEMPLATE_ID_IMPROVE, "improvement");
 
-  // start with both hidden
   closeAll();
 
-  // keep HTML in sync if a button is focused and user presses Enter
   ctaSection.addEventListener("keydown", e => {
     if (e.key !== "Escape") return;
     closeAll();
   });
 })();
-

@@ -508,7 +508,7 @@ html {
 /* CTA Section (EmailJS forms) */
 .about-cta {
   margin-top: 64px;
-  background-color: #201d4bc2;
+  /* background-color: #201d4bc2; */
   padding: 100px;
 }
 

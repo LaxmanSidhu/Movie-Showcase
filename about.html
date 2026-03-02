@@ -58,7 +58,7 @@
                     </div>
 
                     <div class="about-hero-actions">
-                        <a class="about-btn-primary" href="#suggesions">Wanna share something ?</a>
+                        <a class="about-btn-primary" href="#suggestions">Wanna share something ?</a>
                         <a class="about-btn-secondary" href="index.html#homecards">Browse all movies</a>
                     </div>
                 </div>
@@ -83,30 +83,34 @@
             </div>
         </section>
 
-        <section class="about-cta" aria-label="Share a movie suggestion" id="suggesions">
+        <section class="about-cta" aria-label="Share a suggestion" id="suggestions">
             <div class="about-cta-inner">
                 <div class="about-cta-head">
                     <h2>🎬 Got something to share?</h2>
-                    <p>If you think I should watch something, tell me here — or share your all-time favourite movie.</p>
+                    <p>If you think I should watch something, tell me here — or suggest improvements for this project.
+                    </p>
                 </div>
 
                 <div class="about-cta-options" role="tablist" aria-label="Choose what to share">
                     <button class="about-cta-option" type="button" data-form="recommend"
                         aria-controls="aboutCtaFormRecommend" aria-expanded="false">
-                        <span class="about-cta-option-title">Recommend me a movie</span>
+                        <span class="about-cta-option-title">Recommend me your favourite movie</span>
                         <span class="about-cta-option-sub">Suggest a movie you think I’d enjoy watching.</span>
                     </button>
 
-                    <button class="about-cta-option" type="button" data-form="favourite"
-                        aria-controls="aboutCtaFormFavourite" aria-expanded="false">
-                        <span class="about-cta-option-title">Tell me your favourite movie</span>
-                        <span class="about-cta-option-sub">Share the one movie you love the most.</span>
+                    <button class="about-cta-option" type="button" data-form="improve"
+                        aria-controls="aboutCtaFormImprove" aria-expanded="false">
+                        <span class="about-cta-option-title">Suggest improvements for this project</span>
+                        <span class="about-cta-option-sub">Share your thoughts — what should I add next?</span>
                     </button>
                 </div>
 
                 <div class="about-cta-forms">
+
+                    <!-- Recommend Form -->
                     <div class="about-cta-form-wrap" id="aboutCtaFormRecommend" data-form-wrap="recommend"
                         aria-hidden="true">
+
                         <form class="about-cta-form" id="aboutRecommendForm" novalidate>
                             <div class="about-cta-form-row">
                                 <label class="about-cta-label" for="recommendName">Name</label>
@@ -115,40 +119,50 @@
                             </div>
 
                             <div class="about-cta-form-row">
-                                <label class="about-cta-label" for="recommendMessage">Movie recommendation</label>
+                                <label class="about-cta-label" for="recommendMessage">
+                                    Movie recommendation
+                                </label>
                                 <textarea class="about-cta-textarea" id="recommendMessage" name="message" rows="4"
                                     placeholder="What should I watch, and why?" required></textarea>
                             </div>
 
                             <div class="about-cta-form-actions">
-                                <button class="about-cta-submit" type="submit">Send Recommendation</button>
+                                <button class="about-cta-submit" type="submit">
+                                    Send Recommendation
+                                </button>
                                 <div class="about-cta-status" role="status" aria-live="polite"></div>
                             </div>
                         </form>
                     </div>
 
-                    <div class="about-cta-form-wrap" id="aboutCtaFormFavourite" data-form-wrap="favourite"
+                    <!-- Improve Form -->
+                    <div class="about-cta-form-wrap" id="aboutCtaFormImprove" data-form-wrap="improve"
                         aria-hidden="true">
-                        <form class="about-cta-form" id="aboutFavouriteForm" novalidate>
+
+                        <form class="about-cta-form" id="aboutImproveForm" novalidate>
                             <div class="about-cta-form-row">
-                                <label class="about-cta-label" for="favouriteName">Name</label>
-                                <input class="about-cta-input" id="favouriteName" name="name" type="text"
+                                <label class="about-cta-label" for="improveName">Name</label>
+                                <input class="about-cta-input" id="improveName" name="name" type="text"
                                     autocomplete="name" placeholder="Your name" required />
                             </div>
 
                             <div class="about-cta-form-row">
-                                <label class="about-cta-label" for="favouriteMessage">Favourite movie</label>
-                                <textarea class="about-cta-textarea" id="favouriteMessage" name="message" rows="4"
-                                    placeholder="What’s your all-time favourite movie?" required></textarea>
+                                <label class="about-cta-label" for="improveMessage">
+                                    Project improvement suggestion
+                                </label>
+                                <textarea class="about-cta-textarea" id="improveMessage" name="message" rows="4"
+                                    placeholder="What should I improve or add next?" required></textarea>
                             </div>
 
                             <div class="about-cta-form-actions">
-                                <button class="about-cta-submit about-cta-submit-secondary" type="submit">Send
-                                    Favourite</button>
+                                <button class="about-cta-submit about-cta-submit-secondary" type="submit">
+                                    Send Suggestion
+                                </button>
                                 <div class="about-cta-status" role="status" aria-live="polite"></div>
                             </div>
                         </form>
                     </div>
+
                 </div>
             </div>
         </section>
