@@ -72,7 +72,7 @@ function ensureCards() {
   categoryMount.innerHTML = "";
 
   Object.entries(SHEETS)
-    .filter(([key]) => key !== "fav_movie" && key !== "watchlist" && key !== "web_series")
+    .filter(([key]) => key !== "fav_movie" && key !== "watchlist" && key !== "web_series" && key !== "recently_watched")
     .forEach(([key, sheet]) => {
       const card = makeCategoryCard({ key, name: sheet.name });
       if (card) categoryMount.appendChild(card);
@@ -92,7 +92,7 @@ async function refreshCounts() {
   if (lastUpdatedEl) lastUpdatedEl.textContent = "Updating…";
 
   const entries = Object.entries(SHEETS).filter(
-    ([key]) => key !== "fav_movie" && key !== "watchlist" && key !== "web_series"
+    ([key]) => key !== "fav_movie" && key !== "watchlist" && key !== "web_series" && key !== "recently_watched"
   );
 
   const results = await Promise.allSettled(
