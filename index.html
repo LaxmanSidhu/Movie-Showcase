@@ -10,7 +10,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movie Showcase</title>
-    <link rel="icon" type="image/png" href="https://e1.pngegg.com/pngimages/974/699/png-clipart-movies-and-popcorn-folder-icon-movies-thumbnail.png">
+    <link rel="icon" type="image/png"
+        href="https://e1.pngegg.com/pngimages/974/699/png-clipart-movies-and-popcorn-folder-icon-movies-thumbnail.png">
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/grid.css" />
     <link rel="stylesheet" href="css/home.css" />
@@ -47,7 +48,7 @@
             </h1>
 
             <p class="hero-subtitle">
-                My personal archive of films, a categorized collection  simple, organized, and easy to explore
+                My personal archive of films, a categorized collection simple, organized, and easy to explore
                 presented in a clean, focused layout.
             </p>
 
@@ -63,13 +64,27 @@
         </div>
     </section>
 
-
+    <!-- <div class="category-divider"><h2>My Movies 🎬</h2></div> -->
     <p class="section-title">Choose an industry to see all the movies you''ve watched.</p>
 
 
-    <main class="container" id="categoryContainer"></main>
+    <main>
 
-    <!-- Template for home category cards -->
+        <!-- Row 1 -->
+        <div class="container category-row" id="topRow"></div>
+
+        <!-- Middle Text -->
+        <div class="category-divider">
+            <h2>My Personal Space 🎬</h2>
+            <p>Track what you love, plan what to watch next</p>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="container category-row bottom-row" id="bottomRow"></div>
+
+    </main>
+
+    <!-- Template -->
     <template id="categoryCardTemplate">
         <div class="category-card">
             <div class="category-card-inner">
@@ -87,7 +102,8 @@
         <div class="content-wrapper">
             <div class="text-content">
                 <h1>My Top 10 Favorites of All Time</h1>
-                <p class="home-favs-text">A hand-picked list of films that have stayed with me long after the credits rolled.</p>
+                <p class="home-favs-text">A hand-picked list of films that have stayed with me long after the credits
+                    rolled.</p>
                 <p class="home-favs-text">
                     This mini gallery is a snapshot of those all-time favorites. I'll keep refining and updating it as I
                     discover more stories that deserve a permanent spot here.
@@ -97,16 +113,36 @@
             <div class="swiper-container">
                 <div class="swiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="https://m.media-amazon.com/images/M/MV5BMTkwOTQ4OTg0OV5BMl5BanBnXkFtZTgwMzQyOTM0OTE@._V1_.jpg" alt="Favorite 1"></div>
-                        <div class="swiper-slide"><img src="https://images.ottplay.com/posters/92fcbd92e0459c900207f1534dfdd440.jpg" alt="Favorite 2"></div>
-                        <div class="swiper-slide"><img src="https://image.tmdb.org/t/p/original/38Xr1JnV1ZcLQ55zmdSp6n475cZ.jpg" alt="Favorite 3"></div>
-                        <div class="swiper-slide"><img src="https://image.tmdb.org/t/p/original/nqJBaK9P732uq2JxRlq2bE25TkJ.jpg" alt="Favorite 4"></div>
-                        <div class="swiper-slide"><img src="https://m.media-amazon.com/images/M/MV5BY2JiM2NmZWMtNmRkYi00ZWY0LWEzMzktZjY2MWRjNzg4NTBlXkEyXkFqcGc@._V1_.jpg" alt="Favorite 5"></div>
-                        <div class="swiper-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmMtlKJYWVL0DkCkxF2iXoXURbyXxgjQIkuQ&s" alt="Favorite 6"></div>
-                        <div class="swiper-slide"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/6ceb8916723863.562b06d1df4c6.jpg" alt="Favorite 7"></div>
-                        <div class="swiper-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPP16A0QPRdJzCZopxi9yVL-QKHgsu11b4Vg&s" alt="Favorite 8"></div>
-                        <div class="swiper-slide"><img src="https://m.media-amazon.com/images/M/MV5BNDAzNDEwNjktZmVmMy00NmQ2LWI2M2EtOWE2ZWI0ODRhMTExXkEyXkFqcGc@._V1_.jpg" alt="Favorite 9"></div>
-                        <div class="swiper-slide"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/b5223929611747.55faffbc773c8.jpg" alt="Favorite 10"></div>
+                        <div class="swiper-slide"><img
+                                src="https://m.media-amazon.com/images/M/MV5BMTkwOTQ4OTg0OV5BMl5BanBnXkFtZTgwMzQyOTM0OTE@._V1_.jpg"
+                                alt="Favorite 1"></div>
+                        <div class="swiper-slide"><img
+                                src="https://images.ottplay.com/posters/92fcbd92e0459c900207f1534dfdd440.jpg"
+                                alt="Favorite 2"></div>
+                        <div class="swiper-slide"><img
+                                src="https://image.tmdb.org/t/p/original/38Xr1JnV1ZcLQ55zmdSp6n475cZ.jpg"
+                                alt="Favorite 3"></div>
+                        <div class="swiper-slide"><img
+                                src="https://image.tmdb.org/t/p/original/nqJBaK9P732uq2JxRlq2bE25TkJ.jpg"
+                                alt="Favorite 4"></div>
+                        <div class="swiper-slide"><img
+                                src="https://m.media-amazon.com/images/M/MV5BY2JiM2NmZWMtNmRkYi00ZWY0LWEzMzktZjY2MWRjNzg4NTBlXkEyXkFqcGc@._V1_.jpg"
+                                alt="Favorite 5"></div>
+                        <div class="swiper-slide"><img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmMtlKJYWVL0DkCkxF2iXoXURbyXxgjQIkuQ&s"
+                                alt="Favorite 6"></div>
+                        <div class="swiper-slide"><img
+                                src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/6ceb8916723863.562b06d1df4c6.jpg"
+                                alt="Favorite 7"></div>
+                        <div class="swiper-slide"><img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPP16A0QPRdJzCZopxi9yVL-QKHgsu11b4Vg&s"
+                                alt="Favorite 8"></div>
+                        <div class="swiper-slide"><img
+                                src="https://m.media-amazon.com/images/M/MV5BNDAzNDEwNjktZmVmMy00NmQ2LWI2M2EtOWE2ZWI0ODRhMTExXkEyXkFqcGc@._V1_.jpg"
+                                alt="Favorite 9"></div>
+                        <div class="swiper-slide"><img
+                                src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/b5223929611747.55faffbc773c8.jpg"
+                                alt="Favorite 10"></div>
                     </div>
                 </div>
 
@@ -125,11 +161,11 @@
             <div class="footer-block">
                 <!-- <div class="footer-kicker"> laxman Sawant </div> -->
                 <div class="footer-text">
-                    A personal movie log of all the films I''ve watched over the years  includes all industries
+                    A personal movie log of all the films I''ve watched over the years includes all industries
                     Hollywood, Bollywood, and more.
                 </div>
                 <div class="footer-note">
-                    Built for my personal movie collection  New industries and movies update automatically.
+                    Built for my personal movie collection New industries and movies update automatically.
                 </div>
             </div>
 

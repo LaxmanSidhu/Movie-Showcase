@@ -28,9 +28,10 @@ if (exploreBtn) {
 // -----------------------------
 const categoryTemplate = document.getElementById("categoryCardTemplate");
 
-Object.entries(SHEETS).forEach(([key, sheet]) => {
-  if (!categoryTemplate) return;
+const topRow = document.getElementById("topRow");
+const bottomRow = document.getElementById("bottomRow");
 
+function createCard(key, sheet) {
   const fragment = categoryTemplate.content.cloneNode(true);
   const card = fragment.querySelector(".category-card");
   const imageEl = fragment.querySelector(".category-image");
@@ -46,19 +47,43 @@ Object.entries(SHEETS).forEach(([key, sheet]) => {
       imageEl.textContent = firstLetter;
     }
   }
+
   if (titleEl) titleEl.textContent = sheet.name || "";
 
   if (card) {
     card.onclick = () => {
       window.location.href = `movies.html?category=${key}`;
     };
-    container.appendChild(card);
+  }
+
+  return card;
+}
+
+/* ========================================
+   AUTO RENDER BASED ON CONFIG (🔥 FLEXIBLE)
+   ======================================== */
+
+Object.entries(SHEETS).forEach(([key, sheet]) => {
+  const card = createCard(key, sheet);
+
+  if (sheet.row === "bottom") {
+    bottomRow.appendChild(card);
+  } else {
+    // default → top row
+    topRow.appendChild(card);
   }
 });
+
+/* ========================================
+   FOOTER YEAR
+   ======================================== */
 
 document.querySelectorAll("[data-footer-year]").forEach(el => {
   el.textContent = String(new Date().getFullYear());
 });
+
+
+
 
 // ========================================
 // Top 10 Favorites Carousel - Swiper

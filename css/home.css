@@ -264,18 +264,31 @@
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  font-weight: 500;
+  font-weight: 700;
   text-align: center;
+  margin-top: 6rem;
 }
 
+/* Base container (grid) */
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
-  padding: 0 24px 60px;
+  gap: 40px;
+  padding: 0 24px 40px;
   margin: 0 auto;
 }
 
+/* Row specific layouts */
+#topRow {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+  justify-content: center;
+}
+
+#bottomRow {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+  justify-content: center;
+}
+
+/* Center cards nicely */
 .category-card {
   position: relative;
   overflow: hidden;
@@ -288,6 +301,9 @@
     0 10px 40px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 var(--glass-highlight);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  max-width: 300px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .category-card::before {
@@ -363,6 +379,30 @@
   color: var(--text-muted);
   font-weight: 500;
 }
+
+/* ========================================
+   DIVIDER TEXT
+   ======================================== */
+
+.category-divider {
+  text-align: center;
+  margin: 5px 0 10px;
+  padding: 10px;
+}
+
+.category-divider h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.category-divider p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
 
 /* ========================================
    Top 10 Favorites Carousel Section
@@ -812,6 +852,27 @@
     .swiper-container {
         padding: 0 10px;
     }
+}
+
+/* ========================================
+   RESPONSIVE (important 🔥)
+   ======================================== */
+
+@media (max-width: 1024px) {
+  #topRow {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #bottomRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  #topRow,
+  #bottomRow {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 
