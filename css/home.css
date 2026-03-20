@@ -272,19 +272,19 @@
 /* Base container (grid) */
 .container {
   display: grid;
-  gap: 40px;
+  gap: 30px;
   padding: 0 24px 40px;
   margin: 0 auto;
 }
 
 /* Row specific layouts */
 #topRow {
-  grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 320px));
   justify-content: center;
 }
 
 #bottomRow {
-  grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 320px));
   justify-content: center;
 }
 
@@ -301,7 +301,7 @@
     0 10px 40px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 var(--glass-highlight);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  max-width: 300px;
+  max-width: 320px;
   width: 100%;
   margin: 0 auto;
 }
@@ -398,7 +398,7 @@
 }
 
 .category-divider p {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: var(--text-muted);
   letter-spacing: 0.05em;
 }
