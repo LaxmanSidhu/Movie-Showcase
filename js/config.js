@@ -15,5 +15,5 @@ const SHEETS = {
   web_series: { name: "Web Series", gid: "1808896095", row: "top", thumbnail: "https://images.saymedia-content.com/.image/t_share/MjA2NDEzODM1MDAxNjY4OTQ4/22-greatest-premium-channel-tv-series.jpg" },
   watchlist: { name: "Watchlist", gid: "549028903", row: "bottom", thumbnail: "https://www.slashfilm.com/img/gallery/12-strongest-avengers-in-the-mcu-ranked/intro-1746204078.jpg" },
   recently_watched: { name: "Recently Watched", gid: "1282043184", row: "bottom", thumbnail: "https://media.timeout.com/images/106191999/750/562/image.jpg" },
-  fav_movie: { name: "Favourite Movies", gid: "894280801", row: "bottom", thumbnail: "https://contentful.harrypotter.com/usf1vwtuqyxm/4Lx4yGQ3W0daVknu7ayizS/d386272ff997df7578c175fb8b912ef8/HP-F1-philosophers-stone-harry-ron-hermione-hogwarts-express-web-landscape?q=75&fm=jpg&w=2560" }
+  must_watch: { name: "Must Watch", gid: "894280801", row: "bottom", thumbnail: "https://contentful.harrypotter.com/usf1vwtuqyxm/4Lx4yGQ3W0daVknu7ayizS/d386272ff997df7578c175fb8b912ef8/HP-F1-philosophers-stone-harry-ron-hermione-hogwarts-express-web-landscape?q=75&fm=jpg&w=2560" }
 };
